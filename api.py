@@ -20,8 +20,14 @@ class AdoptAPetAPI:
         response = requests.get(self.base_url, params=params)
         return response.json()
 
+def CallApi():
+    url = "https://api.adoptapet.com/search/pet_search?key=4a1213b4f464aa49cc1308dfaac6c532&v=1&geo_range=10&city_or_zip=90210&species=cat&output=json"
+    response = requests.get(url)
+    return response.json()
+
 # Uso de la clase
 if __name__ == "__main__":
-    api_client = AdoptAPetAPI(APIKEY)
-    resultado = api_client.query(10, "90210", "dog")
-    print(resultado)
+    print(CallApi())
+#    api_client = AdoptAPetAPI(APIKEY)
+#    resultado = api_client.query(10, "90210", "dog")
+#    print(resultado)
